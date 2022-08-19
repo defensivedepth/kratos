@@ -132,6 +132,7 @@ func (e *HookExecutor) PostLoginHook(w http.ResponseWriter, r *http.Request, a *
 			WithRequest(r).
 			WithField("session_id", s.ID).
 			WithField("identity_id", i.ID).
+			WithField("email", i.Traits).
 			Info("Identity authenticated successfully and was issued an Ory Kratos Session Token.")
 
 		response := &APIFlowResponse{Session: s, Token: s.Token}
@@ -152,6 +153,7 @@ func (e *HookExecutor) PostLoginHook(w http.ResponseWriter, r *http.Request, a *
 		WithRequest(r).
 		WithField("identity_id", i.ID).
 		WithField("session_id", s.ID).
+		WithField("email", i.Traits).
 		Info("Identity authenticated successfully and was issued an Ory Kratos Session Cookie.")
 
 	if x.IsJSONRequest(r) {
