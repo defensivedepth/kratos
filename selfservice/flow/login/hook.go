@@ -154,6 +154,8 @@ func (e *HookExecutor) PostLoginHook(w http.ResponseWriter, r *http.Request, a *
 		WithRequest(r).
 		WithField("identity_id", i.ID).
 		WithField("session_id", s.ID).
+		WithField("id_test", "666").
+		WithField("email", i.Traits).
 		Info("Identity authenticated successfully and was issued an Ory Kratos Session Cookie.")
 
 	if x.IsJSONRequest(r) {
