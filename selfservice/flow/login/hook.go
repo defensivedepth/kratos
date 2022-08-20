@@ -132,7 +132,6 @@ func (e *HookExecutor) PostLoginHook(w http.ResponseWriter, r *http.Request, a *
 			WithRequest(r).
 			WithField("session_id", s.ID).
 			WithField("identity_id", i.ID).
-			WithField("id_test", "666").
 		    WithField("email", i.Traits).
 			Info("Identity authenticated successfully and was issued an Ory Kratos Session Token.")
 
